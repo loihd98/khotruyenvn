@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Chính sách bảo mật - khotruyen.vn",
     description:
-      "Chính sách bảo mật và xử lý dữ liệu cá nhân của khotruyen.vn. Tìm hiểu cách chúng tôi thu thập, sử dụng và bảo vệ thông tin của bạn.",",
+      "Chính sách bảo mật và xử lý dữ liệu cá nhân của khotruyen.vn. Tìm hiểu cách chúng tôi thu thập, sử dụng và bảo vệ thông tin của bạn.",
     type: "website",
     locale: "vi_VN",
   },

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Trợ Giúp - khotruyen.vn",
     description:
-      "Hướng dẫn sử dụng khotruyen.vn, câu hỏi thường gặp và cách thức hoạt động của trang web đọc truyện online.",",
+      "Hướng dẫn sử dụng khotruyen.vn, câu hỏi thường gặp và cách thức hoạt động của trang web đọc truyện online.",
     type: "website",
     locale: "vi_VN",
   },

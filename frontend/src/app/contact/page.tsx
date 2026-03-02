@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Liên hệ - khotruyen.vn",
     description:
-      "Liên hệ với đội ngũ khotruyen.vn để được hỗ trợ, góp ý hoặc báo cáo vấn đề. Chúng tôi luôn sẵn sàng lắng nghe và hỗ trợ bạn.",",
+      "Liên hệ với đội ngũ khotruyen.vn để được hỗ trợ, góp ý hoặc báo cáo vấn đề. Chúng tôi luôn sẵn sàng lắng nghe và hỗ trợ bạn.",
     type: "website",
     locale: "vi_VN",
   },

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "DMCA - Báo cáo vi phạm bản quyền - khotruyen.vn",
     description:
-      "Chính sách DMCA và hướng dẫn báo cáo vi phạm bản quyền tại khotruyen.vn. Chúng tôi tôn trọng quyền sở hữu trí tuệ.",",
+      "Chính sách DMCA và hướng dẫn báo cáo vi phạm bản quyền tại khotruyen.vn. Chúng tôi tôn trọng quyền sở hữu trí tuệ.",
     type: "website",
     locale: "vi_VN",
   },
