@@ -136,7 +136,7 @@ export default function DailyPopup({ storyId, affiliateLink }: DailyPopupProps) 
 
                     {/* Description */}
                     <p className="text-gray-700 text-center mb-8 leading-relaxed">
-                        Cảm ơn bạn đã ghé thăm nhà của vivutruyenhay.com Mỗi click sang Shopee, Tiktok của bạn đều là một lời cổ vũ,
+                        Cảm ơn bạn đã ghé thăm nhà của khotruyen.vn Mỗi click sang Shopee, Tiktok của bạn đều là một lời cổ vũ,
                         tiếp thêm năng lượng để chúng mình mang đến nhiều câu chuyện hấp dẫn hơn nữa
                     </p>
 

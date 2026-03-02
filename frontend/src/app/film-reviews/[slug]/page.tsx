@@ -9,7 +9,7 @@ import JsonLd, {
 
 const API_BASE_URL =
   process.env.API_URL || process.env.NEXT_PUBLIC_API_URL || "/api";
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://vivutruyenhay.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://khotruyen.vn";
 
 // SSR: Fetch film review on server for SEO
 async function getFilmReview(slug: string) {
@@ -34,12 +34,12 @@ export async function generateMetadata({
 
   if (!filmReview) {
     return {
-      title: "Không tìm thấy review phim | vivutruyenhay.com",
+      title: "Không tìm thấy review phim | khotruyen.vn",
       description: "Bài review phim không tồn tại hoặc đã bị xóa.",
     };
   }
 
-  const title = `${filmReview.title} - Review Phim | vivutruyenhay.com`;
+  const title = `${filmReview.title} - Review Phim | khotruyen.vn`;
   const description = filmReview.description
     ? filmReview.description.substring(0, 160)
     : `Review phim ${filmReview.title}. Đánh giá: ${filmReview.rating}/10`;

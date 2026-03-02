@@ -1,7 +1,7 @@
 /* TEAM */
 Founder & Developer: Evanloi9x
-Site: https://vivutruyenhay.com
-Contact: admin@vivutruyenhay.com
+Site: https://khotruyen.vn
+Contact: admin@khotruyen.vn
 Location: Vietnam
 
 /* SITE */

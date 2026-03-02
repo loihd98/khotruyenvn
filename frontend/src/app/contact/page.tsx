@@ -5,13 +5,13 @@ import ContactForm from "../../components/contact/ContactForm";
 
 // Generate metadata for SEO
 export const metadata: Metadata = {
-  title: "Liên hệ - vivutruyenhay.com",
+  title: "Liên hệ - khotruyen.vn",
   description:
-    "Liên hệ với đội ngũ vivutruyenhay.com để được hỗ trợ, góp ý hoặc báo cáo vấn đề. Chúng tôi luôn sẵn sàng lắng nghe và hỗ trợ bạn.",
+    "Liên hệ với đội ngũ khotruyen.vn để được hỗ trợ, góp ý hoặc báo cáo vấn đề. Chúng tôi luôn sẵn sàng lắng nghe và hỗ trợ bạn.",
   openGraph: {
-    title: "Liên hệ - vivutruyenhay.com",
+    title: "Liên hệ - khotruyen.vn",
     description:
-      "Liên hệ với đội ngũ vivutruyenhay.com để được hỗ trợ, góp ý hoặc báo cáo vấn đề. Chúng tôi luôn sẵn sàng lắng nghe và hỗ trợ bạn.",
+      "Liên hệ với đội ngũ khotruyen.vn để được hỗ trợ, góp ý hoặc báo cáo vấn đề. Chúng tôi luôn sẵn sàng lắng nghe và hỗ trợ bạn.",",
     type: "website",
     locale: "vi_VN",
   },
@@ -161,7 +161,7 @@ export default function ContactPage() {
                       Có mất phí không?
                     </h4>
                     <p className="text-sm text-gray-600 dark:text-gray-400">
-                      vivutruyenhay.com hoàn toàn miễn phí cho tất cả người dùng.
+                      khotruyen.vn hoàn toàn miễn phí cho tất cả người dùng.
                     </p>
                   </div>
                   <div className="border-l-4 border-purple-500 pl-4">

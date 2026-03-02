@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "vivutruyenhay.com - Đọc truyện online miễn phí";
+export const alt = "khotruyen.vn - Đọc truyện online miễn phí";
 export const size = {
   width: 1200,
   height: 630,
@@ -31,7 +31,7 @@ export default async function Image() {
             marginBottom: 20,
           }}
         >
-          VivuTruyenHay.com
+          khotruyen.vn
         </div>
         <div
           style={{

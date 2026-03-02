@@ -1,6 +1,6 @@
-# Deployment Guide — vivutruyenhay.com
+# Deployment Guide — khotruyen.vn
 
-Complete A-to-Z guide for deploying the website to a fresh **Ubuntu 20.04 VPS** with IP `103.199.18.123` and domain `vivutruyenhay.com`.
+Complete A-to-Z guide for deploying the website to a fresh **Ubuntu 20.04 VPS** with IP `103.199.16.250` and domain `khotruyen.vn`.
 
 ---
 
@@ -25,10 +25,10 @@ Complete A-to-Z guide for deploying the website to a fresh **Ubuntu 20.04 VPS** 
 
 Before starting, ensure you have:
 
-- A VPS with Ubuntu 20.04 LTS (IP: `103.199.18.123`)
+- A VPS with Ubuntu 20.04 LTS (IP: `103.199.16.250`)
 - Root SSH access to the VPS
-- Domain `vivutruyenhay.com` registered and ready to configure
-- Your project code pushed to GitHub at `https://github.com/loihd98/vivutruyenhay.git`
+- Domain `khotruyen.vn` registered and ready to configure
+- Your project code pushed to GitHub at `https://github.com/loihd98/khotruyenvn.git`
 
 ---
 
@@ -38,18 +38,18 @@ At your domain registrar (e.g., Namecheap, GoDaddy, Cloudflare), create these DN
 
 | Type | Host | Value          | TTL |
 | ---- | ---- | -------------- | --- |
-| A    | @    | 103.199.18.123 | 300 |
-| A    | www  | 103.199.18.123 | 300 |
+| A    | @    | 103.199.16.250 | 300 |
+| A    | www  | 103.199.16.250 | 300 |
 
 Wait 5-15 minutes for DNS propagation, then verify:
 
 ```bash
 # From your local machine
-nslookup vivutruyenhay.com
-ping vivutruyenhay.com
+nslookup khotruyen.vn
+ping khotruyen.vn
 ```
 
-Both should resolve to `103.199.18.123`.
+Both should resolve to `103.199.16.250`.
 
 ---
 
@@ -58,7 +58,7 @@ Both should resolve to `103.199.18.123`.
 ### 3.1 Connect to VPS
 
 ```bash
-ssh root@103.199.18.123
+ssh root@103.199.16.250
 ```
 
 ### 3.2 Update System
@@ -103,7 +103,7 @@ cp -r ~/.ssh /home/deploy/
 chown -R deploy:deploy /home/deploy/.ssh
 ```
 
-From now on, you can SSH as `deploy@103.199.18.123` (optional — using root is fine for single-admin setups).
+From now on, you can SSH as `deploy@103.199.16.250` (optional — using root is fine for single-admin setups).
 
 ---
 
@@ -160,7 +160,7 @@ systemctl start docker
 ```bash
 mkdir -p /opt
 cd /opt
-git clone https://github.com/loihd98/vivutruyenhay.git webtruyen
+git clone https://github.com/loihd98/khotruyenvn.git webtruyen
 cd /opt/webtruyen
 ```
 
@@ -185,17 +185,17 @@ JWT_SECRET=PASTE_GENERATED_SECRET_HERE
 JWT_REFRESH_SECRET=PASTE_DIFFERENT_GENERATED_SECRET_HERE
 
 # URLs
-BASE_URL=https://vivutruyenhay.com
-CORS_ORIGIN=https://vivutruyenhay.com
-FRONTEND_URL=https://vivutruyenhay.com
-BACKEND_URL=https://vivutruyenhay.com
-DOMAIN=vivutruyenhay.com
+BASE_URL=https://khotruyen.vn
+CORS_ORIGIN=https://khotruyen.vn
+FRONTEND_URL=https://khotruyen.vn
+BACKEND_URL=https://khotruyen.vn
+DOMAIN=khotruyen.vn
 
 # Frontend
-NEXT_PUBLIC_API_URL=https://vivutruyenhay.com/api
-NEXT_PUBLIC_BASE_URL=https://vivutruyenhay.com
-NEXT_PUBLIC_MEDIA_URL=https://vivutruyenhay.com
-NEXT_PUBLIC_SITE_URL=https://vivutruyenhay.com
+NEXT_PUBLIC_API_URL=https://khotruyen.vn/api
+NEXT_PUBLIC_BASE_URL=https://khotruyen.vn
+NEXT_PUBLIC_MEDIA_URL=https://khotruyen.vn
+NEXT_PUBLIC_SITE_URL=https://khotruyen.vn
 API_URL=http://backend:5000/api
 
 # File upload
@@ -236,7 +236,7 @@ Create a temporary HTTP-only Nginx config:
 cat > /opt/webtruyen/nginx/prod.conf << 'EOF'
 server {
     listen 80;
-    server_name vivutruyenhay.com www.vivutruyenhay.com;
+    server_name khotruyen.vn www.khotruyen.vn;
 
     location /.well-known/acme-challenge/ {
         root /var/www/certbot;
@@ -303,8 +303,8 @@ nginx         Up
 ### 5.7 Verify HTTP Access
 
 ```bash
-curl -I http://vivutruyenhay.com
-curl http://vivutruyenhay.com/api/health
+curl -I http://khotruyen.vn
+curl http://khotruyen.vn/api/health
 ```
 
 If the site is accessible via HTTP, proceed to SSL setup.
@@ -320,7 +320,7 @@ cd /opt/webtruyen
 
 docker compose -f docker-compose.prod.yml run --rm certbot certonly \
   --webroot --webroot-path=/var/www/certbot \
-  -d vivutruyenhay.com -d www.vivutruyenhay.com \
+  -d khotruyen.vn -d www.khotruyen.vn \
   --email your-email@gmail.com \
   --agree-tos --no-eff-email
 ```
@@ -329,8 +329,8 @@ Expected output:
 
 ```
 Successfully received certificate.
-Certificate is saved at: /etc/letsencrypt/live/vivutruyenhay.com/fullchain.pem
-Key is saved at: /etc/letsencrypt/live/vivutruyenhay.com/privkey.pem
+Certificate is saved at: /etc/letsencrypt/live/khotruyen.vn/fullchain.pem
+Key is saved at: /etc/letsencrypt/live/khotruyen.vn/privkey.pem
 ```
 
 ### 6.2 Restore the Full HTTPS Nginx Config
@@ -359,12 +359,12 @@ docker compose -f docker-compose.prod.yml restart nginx
 ### 6.4 Verify HTTPS
 
 ```bash
-curl -I https://vivutruyenhay.com
+curl -I https://khotruyen.vn
 ```
 
 Expected: HTTP 200 with security headers (`Strict-Transport-Security`, `X-Frame-Options`, etc.).
 
-Open in a browser: **https://vivutruyenhay.com** — you should see a green padlock.
+Open in a browser: **https://khotruyen.vn** — you should see a green padlock.
 
 ---
 
@@ -413,14 +413,14 @@ SELECT id, email, name, role FROM users;
 
 ```bash
 # Register a user
-curl -X POST https://vivutruyenhay.com/api/auth/register \
+curl -X POST https://khotruyen.vn/api/auth/register \
   -H "Content-Type: application/json" \
-  -d '{"email": "admin@vivutruyenhay.com", "password": "YourStrongPassword123", "name": "Admin"}'
+  -d '{"email": "admin@khotruyen.vn", "password": "YourStrongPassword123", "name": "Admin"}'
 
 # Then promote to admin via database
 docker compose -f docker-compose.prod.yml exec postgres \
   psql -U webtruyen_user -d web_truyen -c \
-  "UPDATE users SET role = 'ADMIN' WHERE email = 'admin@vivutruyenhay.com';"
+  "UPDATE users SET role = 'ADMIN' WHERE email = 'admin@khotruyen.vn';"
 ```
 
 ---
@@ -434,26 +434,26 @@ docker compose -f docker-compose.prod.yml exec postgres \
 docker compose -f docker-compose.prod.yml ps
 
 # Backend health
-curl https://vivutruyenhay.com/api/health
+curl https://khotruyen.vn/api/health
 
 # Frontend loads
-curl -s -o /dev/null -w "%{http_code}" https://vivutruyenhay.com
+curl -s -o /dev/null -w "%{http_code}" https://khotruyen.vn
 
 # SSL certificate info
-curl -vI https://vivutruyenhay.com 2>&1 | grep -E "expire|subject|issuer"
+curl -vI https://khotruyen.vn 2>&1 | grep -E "expire|subject|issuer"
 ```
 
 ### 8.2 Feature Checklist
 
 | Feature      | URL                                     | Expected                               |
 | ------------ | --------------------------------------- | -------------------------------------- |
-| Homepage     | https://vivutruyenhay.com               | Loads with stories                     |
-| API Health   | https://vivutruyenhay.com/api/health    | `{"status":"OK"}`                      |
-| Registration | https://vivutruyenhay.com/auth/register | Registration form                      |
-| Login        | https://vivutruyenhay.com/auth/login    | Login form                             |
-| Admin Panel  | https://vivutruyenhay.com/admin         | Admin dashboard (requires admin login) |
-| Sitemap      | https://vivutruyenhay.com/sitemap.xml   | XML sitemap                            |
-| SSL          | https://vivutruyenhay.com               | Green padlock                          |
+| Homepage     | https://khotruyen.vn               | Loads with stories                     |
+| API Health   | https://khotruyen.vn/api/health    | `{"status":"OK"}`                      |
+| Registration | https://khotruyen.vn/auth/register | Registration form                      |
+| Login        | https://khotruyen.vn/auth/login    | Login form                             |
+| Admin Panel  | https://khotruyen.vn/admin         | Admin dashboard (requires admin login) |
+| Sitemap      | https://khotruyen.vn/sitemap.xml   | XML sitemap                            |
+| SSL          | https://khotruyen.vn               | Green padlock                          |
 
 ### 8.3 Check Logs If Issues
 
@@ -512,7 +512,7 @@ docker compose -f docker-compose.prod.yml restart nginx
 
 ```bash
 docker run --rm -v webtruyen_certbot-certs:/certs alpine/openssl x509 \
-  -in /certs/live/vivutruyenhay.com/fullchain.pem -noout -dates
+  -in /certs/live/khotruyen.vn/fullchain.pem -noout -dates
 ```
 
 ---
@@ -690,7 +690,7 @@ docker compose -f docker-compose.prod.yml up -d --build frontend
 ```bash
 # Check if certificates exist
 docker run --rm -v webtruyen_certbot-certs:/certs alpine \
-  ls -la /certs/live/vivutruyenhay.com/
+  ls -la /certs/live/khotruyen.vn/
 
 # If missing, re-run the SSL setup from Section 6
 ```
@@ -747,7 +747,7 @@ Lệnh này tạo file migration SQL trong `prisma/migrations/`. Commit và push
 **Bước 2: Deploy migration trên VPS**
 
 ```bash
-ssh root@103.199.18.123
+ssh root@103.199.16.250
 cd /opt/webtruyen
 
 # Pull code mới (chứa file migration)

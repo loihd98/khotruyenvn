@@ -98,7 +98,7 @@ const Navbar: React.FC = () => {
                 <span className="inline-block group-hover:animate-bounce">
                   📚
                 </span>{" "}
-                vivutruyenhay.com
+                khotruyen.vn
               </div>
             </Link>
 
@@ -242,7 +242,7 @@ const Navbar: React.FC = () => {
               <span className="inline-block group-hover:animate-bounce">
                 📚
               </span>{" "}
-              vivutruyenhay.com
+              khotruyen.vn
             </div>
           </Link>
 

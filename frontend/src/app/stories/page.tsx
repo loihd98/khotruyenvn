@@ -16,7 +16,7 @@ export async function generateMetadata({
   const search = searchParams.search as string;
   const genre = searchParams.genre as string;
 
-  let title = "Kho Truyện - vivutruyenhay.com";
+  let title = "Kho Truyện - khotruyen.vn";
   let description =
     "Khám phá hàng ngàn câu chuyện hay từ các tác giả tài năng. Đọc truyện chữ và nghe truyện audio miễn phí.";
 

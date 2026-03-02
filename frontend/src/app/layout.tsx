@@ -7,16 +7,16 @@ import ThemeProvider from "@/components/layout/ThemeProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://vivutruyenhay.com";
-const siteName = "vivutruyenhay.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://khotruyen.vn";
+const siteName = "khotruyen.vn";
 const siteDescription =
   "Nền tảng đọc truyện online, nghe truyện audio và review phim miễn phí hàng đầu Việt Nam. Cập nhật liên tục các thể loại: tiên hiệp, kiếm hiệp, ngôn tình, huyền huyễn, đô thị, phim hành động, phim tình cảm...";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "vivutruyenhay.com - Đọc truyện online & Review phim miễn phí",
-    template: "%s | vivutruyenhay.com",
+    default: "khotruyen.vn - Đọc truyện online & Review phim miễn phí",
+    template: "%s | khotruyen.vn",
   },
   description: siteDescription,
   keywords: [
@@ -52,21 +52,21 @@ export const metadata: Metadata = {
     locale: "vi_VN",
     url: siteUrl,
     siteName: siteName,
-    title: "vivutruyenhay.com - Đọc truyện online miễn phí",
+    title: "khotruyen.vn - Đọc truyện online miễn phí",
     description: siteDescription,
     images: [
       {
         url: "/og-image.svg",
         width: 1200,
         height: 630,
-        alt: "vivutruyenhay.com - Kho truyện online",
+        alt: "khotruyen.vn - Kho truyện online",
         type: "image/svg+xml",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "vivutruyenhay.com - Đọc truyện online miễn phí",
+    title: "khotruyen.vn - Đọc truyện online miễn phí",
     description: siteDescription,
     images: ["/og-image.svg"],
     creator: "@Evanloi9x",
@@ -120,9 +120,9 @@ export default function RootLayout({
         <meta name="theme-color" content="#1e40af" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="vivutruyenhay.com" />
+        <meta name="apple-mobile-web-app-title" content="khotruyen.vn" />
         <meta name="mobile-web-app-capable" content="yes" />
-        <meta name="application-name" content="vivutruyenhay.com" />
+        <meta name="application-name" content="khotruyen.vn" />
         <link rel="author" href={`${siteUrl}/humans.txt`} />
         {/* Inline script runs before React hydration to prevent flash of light theme */}
         <script

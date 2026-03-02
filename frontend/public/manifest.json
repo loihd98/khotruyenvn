@@ -1,7 +1,7 @@
 {
-  "name": "vivutruyenhay.com",
-  "short_name": "VivuTruyen",
-  "description": "Vivu truyện hay online miễn phí - Đọc và nghe truyện mọi lúc mọi nơi",
+  "name": "khotruyen.vn",
+  "short_name": "KhoTruyen",
+  "description": "Kho truyện hay online miễn phí - Đọc và nghe truyện mọi lúc mọi nơi",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",

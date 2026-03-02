@@ -1,4 +1,4 @@
-# vivutruyenhay.com
+# khotruyen.vn
 
 A full-stack web application for reading stories, listening to audio stories, and reviewing films. Built with **Next.js 14**, **Node.js/Express**, **PostgreSQL**, and **Docker**.
 
@@ -78,8 +78,8 @@ webtruyen/
 ### Setup
 
 ```bash
-git clone https://github.com/loihd98/vivutruyenhay.git
-cd vivutruyenhay
+git clone https://github.com/loihd98/khotruyenvn.git
+cd khotruyenvn
 
 # Create environment file
 cp .env.dev.example .env.dev
@@ -233,7 +233,7 @@ The project includes built-in SEO optimization:
 ### SEO Checklist for Production
 
 - [ ] Register on [Google Search Console](https://search.google.com/search-console)
-- [ ] Submit sitemap URL: `https://vivutruyenhay.com/sitemap.xml`
+- [ ] Submit sitemap URL: `https://khotruyen.vn/sitemap.xml`
 - [ ] Add Google verification code to `layout.tsx`
 - [ ] (Optional) Set up Google Analytics
 - [ ] (Optional) Create Facebook App for social login & OG debugging
@@ -301,7 +301,7 @@ Managed via Let's Encrypt (Certbot) with automatic renewal.
 ```bash
 # Check certificate expiry
 docker run --rm -v webtruyen_certbot-certs:/certs alpine/openssl x509 \
-  -in /certs/live/vivutruyenhay.com/fullchain.pem -noout -dates
+  -in /certs/live/khotruyen.vn/fullchain.pem -noout -dates
 
 # Force renewal
 docker compose -f docker-compose.prod.yml run --rm certbot renew --force-renewal

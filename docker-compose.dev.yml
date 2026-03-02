@@ -78,7 +78,7 @@ services:
       - ./logs/nginx:/var/log/nginx
       - /etc/letsencrypt:/etc/letsencrypt:ro
     environment:
-      - DOMAIN=vivutruyenhay.com
+      - DOMAIN=khotruyen.vn
     depends_on:
       - frontend
       - backend

@@ -1,8 +1,8 @@
-# Tổng Quan Kiến Trúc & Công Nghệ Dự Án vivutruyenhay.com
+# Tổng Quan Kiến Trúc & Công Nghệ Dự Án khotruyen.vn
 
 ## 1. Tổng Quan Dự Án
 
-**vivutruyenhay.com** là một nền tảng full-stack cho phép đọc truyện online, nghe truyện audio và review phim. Dự án được containerize hoàn toàn bằng Docker, triển khai trên VPS Ubuntu với Nginx reverse proxy và SSL.
+**khotruyen.vn** là một nền tảng full-stack cho phép đọc truyện online, nghe truyện audio và review phim. Dự án được containerize hoàn toàn bằng Docker, triển khai trên VPS Ubuntu với Nginx reverse proxy và SSL.
 
 ---
 
@@ -614,7 +614,7 @@ getFilmReviewsListSchema(); // Schema.org/CollectionPage
 export async function generateMetadata({ params }): Promise<Metadata> {
   const data = await fetchData(params.slug);
   return {
-    title: `${data.title} | vivutruyenhay.com`,
+    title: `${data.title} | khotruyen.vn`,
     description: data.description?.substring(0, 160),
     openGraph: {
       title,
@@ -699,7 +699,7 @@ location /uploads/ {
 | `API_URL`             | Server-side API (Docker internal)  | `http://backend:5000/api`                 |
 | `CORS_ORIGIN`         | Allowed origins                    | `https://domain.com`                      |
 | `UPLOAD_PATH`         | Thư mục upload                     | `/uploads`                                |
-| `DOMAIN`              | Domain name                        | `vivutruyenhay.com`                       |
+| `DOMAIN`              | Domain name                        | `khotruyen.vn`                            |
 
 ### 11.2 Docker Compose Volumes
 
@@ -870,7 +870,7 @@ Response interceptor tự động gọi `/auth/refresh` khi nhận 401, rồi re
 ## 16. End-to-End Flow
 
 ```
-1. User truy cập https://vivutruyenhay.com/stories/dau-pha-thuong-khung
+1. User truy cập https://khotruyen.vn/stories/dau-pha-thuong-khung
 
 2. Nginx nhận request → proxy đến Frontend :3000
 

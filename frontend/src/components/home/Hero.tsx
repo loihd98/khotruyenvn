@@ -14,7 +14,7 @@ const Hero: React.FC = () => {
           </h1>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
             Đọc và nghe hàng ngàn câu chuyện hay, xem review phim mới nhất từ
-            cộng đồng. Trải nghiệm hoàn toàn miễn phí tại vivutruyenhay.com
+            cộng đồng. Trải nghiệm hoàn toàn miễn phí tại khotruyen.vn
           </p>
           <div className="flex flex-row gap-4 justify-center">
             <Link

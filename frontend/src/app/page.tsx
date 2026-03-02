@@ -6,7 +6,7 @@ import JsonLd, {
   getWebsiteSchema,
 } from "../components/seo/JsonLd";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://vivutruyenhay.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://khotruyen.vn";
 
 function getApiUrl() {
   return process.env.API_URL || process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
