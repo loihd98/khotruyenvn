@@ -1,0 +1,93 @@
+services:
+  postgres:
+    image: postgres:15-alpine
+    restart: unless-stopped
+    volumes:
+      - postgres_data_dev:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: webtruyen_dev
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres123
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d webtruyen_dev"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - app-network
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+      args:
+        - NODE_ENV=development
+    restart: unless-stopped
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+      - ./uploads:/uploads
+      - ./logs/backend:/app/logs
+    env_file:
+      - .env.dev
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "5000:5000"
+    command: sh -c "npx prisma generate && npx prisma migrate deploy && npm run dev"
+    networks:
+      - app-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      target: deps
+      args:
+        - NODE_ENV=development
+    restart: unless-stopped
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+      - /app/.next
+    env_file:
+      - .env.dev
+    environment:
+      - PORT=3000
+    command: sh -c "npm run dev"
+    depends_on:
+      - backend
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+
+  nginx:
+    image: nginx:alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/dev.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./uploads:/uploads:ro
+      - ./logs/nginx:/var/log/nginx
+      - /etc/letsencrypt:/etc/letsencrypt:ro
+    environment:
+      - DOMAIN=vivutruyenhay.com
+    depends_on:
+      - frontend
+      - backend
+    networks:
+      - app-network
+
+volumes:
+  postgres_data_dev:
+
+networks:
+  app-network:
+    driver: bridge

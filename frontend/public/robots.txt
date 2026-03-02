@@ -1,0 +1,30 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /auth/
+Disallow: /profile/
+Disallow: /bookmarks/
+
+# Sitemaps
+Sitemap: https://vivutruyenhay.com/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Specific bots
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /auth/
+Disallow: /profile/
+Disallow: /bookmarks/
+
+User-agent: Bingbot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /auth/
+Disallow: /profile/
+Disallow: /bookmarks/
